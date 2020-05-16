@@ -6,6 +6,8 @@ var canvasHeight = 800;
 var brickWidth = 40;
 var brickHeight = 10;
 
+var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]);
+
 
 // generated the brick wall
 function showBricks(){
@@ -111,7 +113,10 @@ function draw() {
 
   showBricks();
   showGround();
-  renderComputer('happy');
+  renderComputer();
+
+  
+  bomb.show();
 
 }
 
