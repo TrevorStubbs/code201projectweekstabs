@@ -19,7 +19,10 @@ var keywordArray = [
   'try',	'typeof',	'var',	'void',
   'volatile',	'while',	'with',	'yield'];
 
+// Use this array to keep track of seen words and use it to display next word
 var seenKeywords = [];
+
+var playerScore = 0;
 
 
 
@@ -28,10 +31,29 @@ function displayKeyword() {
   parentSection.textContent = seenKeywords[seenKeywords.length-1];
 }
 
+////this displayes the players score. It does not get rid of the element tho. but I wont change it till i get the animation running.
+// TODO - get rid of it or change it.
+function updateScore(value){
+  playerScore += value;
+  var pSection = document.getElementById('score');
+  var articleElement = document.createElement('p');
+  articleElement.textContent = playerScore;
+  pSection.appendChild(articleElement);
+}
 
+// genereates a new keyword checks to see if it's already in the seenKeywords array if it's not in there then push it to the end of the array
 function getRandomKeyword(){
   // generate a string from a random index of keywordArray
   var index = randomNumberGen(0, keywordArray.length);
+
+  while(seenKeywords.includes(index)){
+    index = randomNumberGen(0, keywordArray.length);
+  }
+
+  if(seenKeywords > 10){
+    seenKeywords.shift();
+  }
+
   seenKeywords.push(keywordArray[index]);
 }
 
@@ -44,10 +66,17 @@ function randomNumberGen(min = 0, max) {
 getRandomKeyword();
 displayKeyword();
 
-document.getElementById('player').addEventListener('submit', function(event){
-  event.preventDefault;
+document.getElementById('player').addEventListener('submit', function handler(event){
+  event.preventDefault();
 
-  // get 
+  var answer = event.target.playerInput.value;
+  if (answer === seenKeywords[seenKeywords.length-1]){
+    updateScore(100);
 
+    getRandomKeyword();
+    displayKeyword();
+    document.getElementById('playerIn').value = '';
+    console.log(playerScore);
+  }
 });
 
