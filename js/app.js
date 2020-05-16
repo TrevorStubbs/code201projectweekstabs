@@ -21,11 +21,22 @@ var keywordArray = [
 
 var seenKeywords = [];
 
+var playerScore = 0;
+
 
 
 function displayKeyword() {
   var parentSection = document.getElementById('test');
   parentSection.textContent = seenKeywords[seenKeywords.length-1];
+}
+
+/////// WIP
+function updateScore(value){
+  playerScore += value;
+  var pSection = document.getElementById('score');
+  var articleElement = document.createElement('p');
+  articleElement.textContent = playerScore;
+  pSection.appendChild(articleElement);
 }
 
 
@@ -44,10 +55,17 @@ function randomNumberGen(min = 0, max) {
 getRandomKeyword();
 displayKeyword();
 
-document.getElementById('player').addEventListener('submit', function(event){
-  event.preventDefault;
+document.getElementById('player').addEventListener('submit', function handler(event){
+  event.preventDefault();
 
-  // get 
+  var answer = event.target.playerInput.value;
+  if (answer === seenKeywords[seenKeywords.length-1]){
+    updateScore(100);
 
+    getRandomKeyword();
+    displayKeyword();
+    document.getElementById('playerIn').value = '';
+    console.log(playerScore);
+  }
 });
 
