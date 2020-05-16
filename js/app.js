@@ -1,24 +1,24 @@
 'use strict';
 
 // Keyword Array. Will probably update with methods.
-var keywordArray = [
-  'abstract',	'arguments',	'await',
-  'boolean',	'byte',	'case',
-  'break',	'catch',
-  'char', 'class',	'const',	'continue',
-  'debugger',	'default',	'delete',	'do',
-  'double',	'else', 'enum',	'eval',
-  'export',	'extends',	'false',	'final',
-  'finally',	'float',	'for',	'function',
-  'goto',	'if',	'implements',	'import',
-  'in',	'instanceof',	'int',	'interface',
-  'let',	'long',	'native',	'new',
-  'null',	'package',	'private',	'protected',
-  'public',	'return',	'short',	'static',
-  'super',	'switch',	'synchronized',	'this',
-  'throw',	'throws',	'transient',	'true',
-  'try',	'typeof',	'var',	'void',
-  'volatile',	'while',	'with',	'yield'];
+// var keywordArray = [
+//   'abstract',	'arguments',	'await',
+//   'boolean',	'byte',	'case',
+//   'break',	'catch',
+//   'char', 'class',	'const',	'continue',
+//   'debugger',	'default',	'delete',	'do',
+//   'double',	'else', 'enum',	'eval',
+//   'export',	'extends',	'false',	'final',
+//   'finally',	'float',	'for',	'function',
+//   'goto',	'if',	'implements',	'import',
+//   'in',	'instanceof',	'int',	'interface',
+//   'let',	'long',	'native',	'new',
+//   'null',	'package',	'private',	'protected',
+//   'public',	'return',	'short',	'static',
+//   'super',	'switch',	'synchronized',	'this',
+//   'throw',	'throws',	'transient',	'true',
+//   'try',	'typeof',	'var',	'void',
+//   'volatile',	'while',	'with',	'yield'];
 
 // Use this array to keep track of seen words and use it to display next word
 var seenKeywords = [];
