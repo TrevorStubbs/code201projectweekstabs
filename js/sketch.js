@@ -54,16 +54,38 @@ function renderComputer(condition){
   function happyComputer(){
     // render computer with smile
     fill(0);
-    
+    rect(screenX+22, screenY+20, 1, 10);
+    rect(screenX+52, screenY+20, 1, 10);
+
+    noFill();
+    arc(screenX+37, screenY+40, 40, 40, 0, PI);
 
   }
   
   function sadComputer(){
     // render computer with frown
+    fill(0);
+    rect(screenX+22, screenY+20, 1, 10);
+    rect(screenX+52, screenY+20, 1, 10);
+
+    noFill();
+    arc(screenX+38, screenY+60, -40, -40, PI, TWO_PI);
   }
   
   function deadComputer(){
     // render computer with X for eyes.
+    fill(0);
+    // rect(screenX+22, screenY+20, 1, 10);
+    // rect(screenX+52, screenY+20, 1, 10);
+    line(screenX+18, screenY+15, screenX+28, screenY+25);
+    line(screenX+18, screenY+25,screenX+28, screenY+15);
+
+    line(screenX+57, screenY+25, screenX+47, screenY+15);
+    line(screenX+57, screenY+15,screenX+47, screenY+25);
+
+    fill(0);
+    // arc(screenX+37, screenY+60, -40, -40, PI, TWO_PI);
+    rect(screenX+18, screenY+45, 40, 5);
   }
 
   if(condition === 'happy'){
@@ -89,7 +111,7 @@ function draw() {
 
   showBricks();
   showGround();
-  renderComputer();
+  renderComputer('happy');
 
 }
 
