@@ -1,5 +1,6 @@
 'use strict';
 
+// Keyword Array. Will probably update with methods.
 var keywordArray = [
   'abstract',	'arguments',	'await',
   'boolean',	'byte',	'case',
@@ -22,10 +23,11 @@ var keywordArray = [
 // Use this array to keep track of seen words and use it to display next word
 var seenKeywords = [];
 
+// Intialize the player's score
 var playerScore = 0;
 
 
-
+//Keyword display for testing purposes. This will be replace once I figure out the animations. 
 function displayKeyword() {
   var parentSection = document.getElementById('test');
   parentSection.textContent = seenKeywords[seenKeywords.length-1];
@@ -46,26 +48,31 @@ function getRandomKeyword(){
   // generate a string from a random index of keywordArray
   var index = randomNumberGen(0, keywordArray.length);
 
-  while(seenKeywords.includes(index)){
+  // checks to see if there index is in seenKeywords array.
+  while(seenKeywords.includes(keywordArray[index])){
     index = randomNumberGen(0, keywordArray.length);
   }
 
-  if(seenKeywords > 10){
+  seenKeywords.push(keywordArray[index]);
+
+  if(seenKeywords.length > 10){
     seenKeywords.shift();
   }
-
-  seenKeywords.push(keywordArray[index]);
 }
 
+// Random Int gen helper function
 function randomNumberGen(min = 0, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
 getRandomKeyword();
 displayKeyword();
 
+
+// Player input text box.
 document.getElementById('player').addEventListener('submit', function handler(event){
   event.preventDefault();
 
