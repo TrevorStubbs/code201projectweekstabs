@@ -1,4 +1,11 @@
-*{
-  background-color: blue;
-  color: red;
+html{
+  background-color: black;
+}
+
+body{
+  width: 1000px;
+  height: 2000px;
+  background-color: white;
+  color: black;
+  margin: auto;
 }
