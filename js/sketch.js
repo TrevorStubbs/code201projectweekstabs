@@ -100,7 +100,6 @@ function renderComputer(condition){
 
 }
 
-
 var setup = function(){ //eslint-disable-line
   var myCanvas = createCanvas(canvasWidth, canvasHeight); //eslint-disable-line
   myCanvas.parent('viewport');
@@ -109,13 +108,10 @@ var setup = function(){ //eslint-disable-line
 function draw() {
   background(220);
 
-
-
   showBricks();
   showGround();
   renderComputer();
 
-  
   bomb.show();
 
 }

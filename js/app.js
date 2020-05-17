@@ -1,39 +1,19 @@
 'use strict';
 
-// Keyword Array. Will probably update with methods.
-// var keywordArray = [
-//   'abstract',	'arguments',	'await',
-//   'boolean',	'byte',	'case',
-//   'break',	'catch',
-//   'char', 'class',	'const',	'continue',
-//   'debugger',	'default',	'delete',	'do',
-//   'double',	'else', 'enum',	'eval',
-//   'export',	'extends',	'false',	'final',
-//   'finally',	'float',	'for',	'function',
-//   'goto',	'if',	'implements',	'import',
-//   'in',	'instanceof',	'int',	'interface',
-//   'let',	'long',	'native',	'new',
-//   'null',	'package',	'private',	'protected',
-//   'public',	'return',	'short',	'static',
-//   'super',	'switch',	'synchronized',	'this',
-//   'throw',	'throws',	'transient',	'true',
-//   'try',	'typeof',	'var',	'void',
-//   'volatile',	'while',	'with',	'yield'];
-
 // Use this array to keep track of seen words and use it to display next word
 var seenKeywords = [];
 
-// Intialize the player's score
+// Initialize the player's score
 var playerScore = 0;
 
-
-//Keyword display for testing purposes. This will be replace once I figure out the animations. 
+//Keyword display for testing purposes. This will be replace once I figure out the animations.
 function displayKeyword() {
   var parentSection = document.getElementById('test');
   parentSection.textContent = seenKeywords[seenKeywords.length-1];
 }
 
-////this displayes the players score. It does not get rid of the element tho. but I wont change it till i get the animation running.
+//======================================================
+////this displays the players score. It does not get rid of the element tho. but I wont change it till i get the animation running.
 // TODO - get rid of it or change it.
 function updateScore(value){
   playerScore += value;
@@ -43,7 +23,7 @@ function updateScore(value){
   pSection.appendChild(articleElement);
 }
 
-// genereates a new keyword checks to see if it's already in the seenKeywords array if it's not in there then push it to the end of the array
+// generates a new keyword checks to see if it's already in the seenKeywords array if it's not in there then push it to the end of the array
 function getRandomKeyword(){
   // generate a string from a random index of keywordArray
   var index = randomNumberGen(0, keywordArray.length);
