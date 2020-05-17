@@ -6,7 +6,15 @@ var canvasHeight = 800;
 var brickWidth = 40;
 var brickHeight = 10;
 
+var gameSpeed = 1;
+
 var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]);
+var bombArray = [];
+
+function generateNewBomb(){
+  // function to generate a new bomb
+  bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1]));
+}
 
 
 // generated the brick wall
@@ -110,9 +118,12 @@ function draw() {
 
   showBricks();
   showGround();
-  renderComputer();
+  renderComputer('happy');
 
-  bomb.show();
+  bombArray[bombArray.length-1].show();
 
 }
 
+// ===============================================
+// TODO - This is for testing. Needs to be in the game start function
+generateNewBomb();

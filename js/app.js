@@ -64,6 +64,8 @@ document.getElementById('player').addEventListener('submit', function handler(ev
     displayKeyword();
     document.getElementById('playerIn').value = '';
     console.log(playerScore);
+    //TODO - this is for testing.Will need to be replaced with another function that will cause the explode animation.
+    generateNewBomb();
   }
 });
 

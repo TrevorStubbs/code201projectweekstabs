@@ -3,10 +3,12 @@
 class Bomb{
 
   constructor(speed, text){
-    this.x = canvasWidth/2; //random x between 2 
+    // this.x = canvasWidth/2; //random x between 2 
+    this.x = randomNumberGen(200, 600); //random x between 2 
     this.y = -100; // set to top of screen
     this.speed = speed; // sets the speed based of score
     this.r = 170; // Define the radius(size of the bomb);
+    // max letter with is 14 characters.
     this.text = text;// the keyword that will be inside the bomb
     this.armed = true; //triggers damage if still true
   }
