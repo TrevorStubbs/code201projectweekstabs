@@ -8,12 +8,13 @@ var brickHeight = 10;
 
 var gameSpeed = 1;
 
-var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]);
-var bombArray = [];
+var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); // Comment this for example ---------------------------------
+var bombArray = []; // Comment this for example ---------------------------
 
+// Comment this for example --------------------------------
 function generateNewBomb(){
   // function to generate a new bomb
-  bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1]));
+  bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1])); 
 }
 
 
@@ -120,10 +121,10 @@ function draw() {
   showGround();
   renderComputer('happy');
 
-  bombArray[bombArray.length-1].show();
+  bombArray[bombArray.length-1].show(); // Comment this for example ----------------
 
 }
 
 // ===============================================
 // TODO - This is for testing. Needs to be in the game start function
-generateNewBomb();
+generateNewBomb();// Comment this for example -------------

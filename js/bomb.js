@@ -3,8 +3,7 @@
 class Bomb{
 
   constructor(speed, text){
-    // this.x = canvasWidth/2; //random x between 2 
-    this.x = randomNumberGen(200, 600); //random x between 2 
+    this.x = randomNumberGen(canvasWidth/4, canvasWidth/1.4); //random x between 2 
     this.y = -100; // set to top of screen
     this.speed = speed; // sets the speed based of score
     this.r = 170; // Define the radius(size of the bomb);
