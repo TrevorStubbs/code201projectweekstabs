@@ -1,21 +1,26 @@
 'use strict';
 
+// Define the canvas size
 var canvasWidth = 800;
 var canvasHeight = 800;
 
+// Define the brick size
 var brickWidth = 40;
 var brickHeight = 10;
 
+// Global Variable to capture milliseconds
 var animationSpeed;
 
+// Starting game speed
 var gameSpeed = 1;
 
+// Bomb instance variables ----------- Probably not use the array ----------
 var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); // Comment this for example ---------------------------------
 var bombArray = []; // Comment this for example ---------------------------
 
 // Comment this for example --------------------------------
+// function to generate a new bomb
 function generateNewBomb(){
-  // function to generate a new bomb
   bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1])); 
 }
 
@@ -63,8 +68,8 @@ function renderComputer(condition){
   fill(0);
   rect(screenX + 40, screenY + 100 , 30, 1);
 
+  // render computer with smile
   function happyComputer(){
-    // render computer with smile
     fill(0);
     rect(screenX+22, screenY+20, 1, 10);
     rect(screenX+52, screenY+20, 1, 10);
@@ -73,9 +78,9 @@ function renderComputer(condition){
     arc(screenX+37, screenY+40, 40, 40, 0, PI);
 
   }
-  
+
+  // render computer with frown
   function sadComputer(){
-    // render computer with frown
     fill(0);
     rect(screenX+22, screenY+20, 1, 10);
     rect(screenX+52, screenY+20, 1, 10);
@@ -83,9 +88,9 @@ function renderComputer(condition){
     noFill();
     arc(screenX+38, screenY+60, -40, -40, PI, TWO_PI);
   }
-  
+
+  // render computer with X for eyes.
   function deadComputer(){
-    // render computer with X for eyes.
     fill(0);
     line(screenX+18, screenY+15, screenX+28, screenY+25);
     line(screenX+18, screenY+25,screenX+28, screenY+15);
@@ -97,6 +102,7 @@ function renderComputer(condition){
     rect(screenX+18, screenY+45, 40, 5);
   }
 
+  // Conditional logic for the eyes
   if(condition === 'happy'){
     happyComputer();
   } else if (condition === 'sad') {
@@ -113,21 +119,21 @@ var setup = function(){ //eslint-disable-line
 
 function draw() {
   animationSpeed = millis()/10;
-  background(220);
+  background(220); //eslint-disable-line
 
   showBricks();
   showGround();
   renderComputer('happy');
-  
+
   // --------- WIP ------------
-  explode(); // Comment this for example --------------
-  bombArray[bombArray.length-1].show(); // Comment this for example ----------------
+  // explode(); // Comment this for example --------------
+  // bombArray[bombArray.length-1].show(); // Comment this for example ----------------
 
 }
 
 // ===============================================
 // TODO - This is for testing. Needs to be in the game start function
-generateNewBomb();// Comment this for example -------------
+// generateNewBomb();// Comment this for example -------------
 
 
 // This the helper function to make the explosion animation
@@ -148,7 +154,6 @@ function star(x, y, radius1, radius2, npoints) {
 
 // Explosion animation needs to be moved into bomb class
 function explode(){
-  // --------------First frame------------
   push();
   fill('red');
   translate(canvasWidth/2, canvasHeight/2);

@@ -1,6 +1,6 @@
 'use strict';
 
-var keywordArray = [
+var keywordArray = [ //eslint-disable-line
   'abstract',	'arguments',	'await',
   'boolean',	'byte',	'case',
   'break',	'catch',
