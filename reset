@@ -1,0 +1,61 @@
+[1mdiff --git a/js/app.js b/js/app.js[m
+[1mindex b7d35c8..188f62a 100644[m
+[1m--- a/js/app.js[m
+[1m+++ b/js/app.js[m
+[36m@@ -65,7 +65,7 @@[m [mdocument.getElementById('player').addEventListener('submit', function handler(ev[m
+     document.getElementById('playerIn').value = '';[m
+     console.log(playerScore);[m
+     //TODO - this is for testing.Will need to be replaced with another function that will cause the explode animation.[m
+[31m-    generateNewBomb();[m
+[32m+[m[32m    generateNewBomb(); // Comment this for example ----------------------------[m[41m[m
+   }[m
+ });[m
+ [m
+[1mdiff --git a/js/bomb.js b/js/bomb.js[m
+[1mindex 6c8bbc5..111f8ed 100644[m
+[1m--- a/js/bomb.js[m
+[1m+++ b/js/bomb.js[m
+[36m@@ -3,8 +3,7 @@[m
+ class Bomb{[m
+ [m
+   constructor(speed, text){[m
+[31m-    // this.x = canvasWidth/2; //random x between 2 [m
+[31m-    this.x = randomNumberGen(200, 600); //random x between 2 [m
+[32m+[m[32m    this.x = randomNumberGen(canvasWidth/4, canvasWidth/1.4); //random x between 2[m[41m [m
+     this.y = -100; // set to top of screen[m
+     this.speed = speed; // sets the speed based of score[m
+     this.r = 170; // Define the radius(size of the bomb);[m
+[1mdiff --git a/js/sketch.js b/js/sketch.js[m
+[1mindex cc4baa9..6d82768 100644[m
+[1m--- a/js/sketch.js[m
+[1m+++ b/js/sketch.js[m
+[36m@@ -8,12 +8,13 @@[m [mvar brickHeight = 10;[m
+ [m
+ var gameSpeed = 1;[m
+ [m
+[31m-var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]);[m
+[31m-var bombArray = [];[m
+[32m+[m[32mvar bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); // Comment this for example ---------------------------------[m[41m[m
+[32m+[m[32mvar bombArray = []; // Comment this for example ---------------------------[m[41m[m
+ [m
+[32m+[m[32m// Comment this for example --------------------------------[m[41m[m
+ function generateNewBomb(){[m
+   // function to generate a new bomb[m
+[31m-  bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1]));[m
+[32m+[m[32m  bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1]));[m[41m [m
+ }[m
+ [m
+ [m
+[36m@@ -120,10 +121,10 @@[m [mfunction draw() {[m
+   showGround();[m
+   renderComputer('happy');[m
+ [m
+[31m-  bombArray[bombArray.length-1].show();[m
+[32m+[m[32m  bombArray[bombArray.length-1].show(); // Comment this for example ----------------[m[41m[m
+ [m
+ }[m
+ [m
+ // ===============================================[m
+ // TODO - This is for testing. Needs to be in the game start function[m
+[31m-generateNewBomb();[m
+[32m+[m[32mgenerateNewBomb();// Comment this for example -------------[m[41m[m
