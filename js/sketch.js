@@ -14,16 +14,15 @@ var animationSpeed;
 // Starting game speed
 var gameSpeed = 1;
 
-// Bomb instance variables ----------- Probably not use the array ----------
-var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); // Comment this for example ---------------------------------
-var bombArray = []; // Comment this for example ---------------------------
+// Bomb instance variables 
+var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); 
 
-// Comment this for example --------------------------------
+var bombArray = [];
+
 // function to generate a new bomb
 function generateNewBomb(){
   bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1])); 
 }
-
 
 // generated the brick wall
 function showBricks(){
@@ -126,24 +125,24 @@ function draw() {
   renderComputer('happy');
 
   // --------- WIP ------------
-  // explode(); // Comment this for example --------------
-  // bombArray[bombArray.length-1].show(); // Comment this for example ----------------
+  explode();
+  bombArray[bombArray.length-1].show();
 
 }
 
 // ===============================================
 // TODO - This is for testing. Needs to be in the game start function
-// generateNewBomb();// Comment this for example -------------
+generateNewBomb();
 
 
 // This the helper function to make the explosion animation
 function star(x, y, radius1, radius2, npoints) {
-  let angle = TWO_PI / npoints;
-  let halfAngle = angle / 2.0;
+  var angle = TWO_PI / npoints;
+  var halfAngle = angle / 2.0;
   beginShape();
-  for (let a = 0; a < TWO_PI; a += angle) {
-    let sx = x + cos(a) * radius2;
-    let sy = y + sin(a) * radius2;
+  for (var a = 0; a < TWO_PI; a += angle) {
+    var sx = x + cos(a) * radius2;
+    var sy = y + sin(a) * radius2;
     vertex(sx, sy);
     sx = x + cos(a + halfAngle) * radius1;
     sy = y + sin(a + halfAngle) * radius1;
