@@ -51,8 +51,4 @@ class Bomb{
   explode() {
     // function to command the bomb to explode
   }
-
-
-
-
 }
