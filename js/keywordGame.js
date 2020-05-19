@@ -19,6 +19,7 @@ function displayKeyword() {
 function updateScore(value){
   playerScore += value;
   var pSection = document.getElementById('score');
+  pSection.textContent = '';
   var articleElement = document.createElement('p');
   articleElement.textContent = playerScore;
   pSection.appendChild(articleElement);

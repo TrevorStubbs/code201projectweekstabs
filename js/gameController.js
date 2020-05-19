@@ -2,9 +2,10 @@
 
 
 function scoreUp(){
-  for(let i = 0; i < 10000; i++){
+  setTimeout(function(){
+    console.log('I am here:');
     bomb.explode();
-  }
+  }, 1000);
   generateNewBomb();
 }
 
@@ -15,5 +16,21 @@ function gameController(){
     renderComputer('sad');
   } else{
     renderComputer();
+  }
+
+  if(playerScore < 300){
+    gameSpeed = 1;
+  } else if(playerScore >= 300 && playerScore < 600) {
+    gameSpeed = 2;
+  } else if(playerScore >= 600 && playerScore < 900) {
+    gameSpeed = 3;
+  } else if(playerScore >= 900 && playerScore < 1200) {
+    gameSpeed = 4;
+  } else if(playerScore >= 1200 && playerScore < 1500) {
+    gameSpeed = 5;
+  } else if(playerScore >= 1800 && playerScore < 2100) {
+    gameSpeed = 6;
+  } else {
+    gameSpeed = 7;
   }
 }
