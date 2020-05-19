@@ -86,7 +86,5 @@ class Bomb{
     // rotate(frameCount / 50.0);
     star(this.x, this.y, 5 + animationSpeed, 10 + animationSpeed, 10);
     pop();
-  
-    
   }
 }

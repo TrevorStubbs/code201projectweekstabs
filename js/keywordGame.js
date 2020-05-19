@@ -13,16 +13,9 @@ function displayKeyword() {
   parentSection.textContent = seenKeywords[seenKeywords.length-1];
 }
 
-//======================================================
-////this displays the players score. It does not get rid of the element tho. but I wont change it till i get the animation running.
-// TODO - get rid of it or change it.
+// Update's player's score
 function updateScore(value){
   playerScore += value;
-  var pSection = document.getElementById('score');
-  pSection.textContent = '';
-  var articleElement = document.createElement('p');
-  articleElement.textContent = playerScore;
-  pSection.appendChild(articleElement);
 }
 
 // generates a new keyword checks to see if it's already in the seenKeywords array if it's not in there then push it to the end of the array
@@ -49,9 +42,8 @@ function randomNumberGen(min = 0, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// This needs to be implemented by a Game Manager
+// TODO This needs to be implemented by a Game Manager
 getRandomKeyword();
-displayKeyword();
 
 
 // Player input text box.
@@ -60,14 +52,18 @@ document.getElementById('player').addEventListener('submit', function handler(ev
 
   var answer = event.target.playerInput.value;
   if (answer === seenKeywords[seenKeywords.length-1]){
-    updateScore(100);
-
-    getRandomKeyword();
-    displayKeyword();
+    //clears the text box so the user can keep playing.
     document.getElementById('playerIn').value = '';
-    console.log(playerScore);
-    //TODO - this is for testing.Will need to be replaced with another function that will cause the explode animation.
     scoreUp();
+  } else {
+    bomb.speed++;
   }
 });
 
+//Start game
+document.getElementById('start').addEventListener('submit', function handler(event){
+  event.preventDefault();
+  console.log('Am I being pushed?');
+  gameOn();
+  document.getElementById('start').textContent = '';
+});

@@ -14,8 +14,11 @@ var animationSpeed;
 // Starting game speed
 var gameSpeed = 1;
 
+// Game On off button
+var gamePlaying = false;
+
 // Computer life
-var computerHealth = 2;
+var computerHealth = 3;
 
 // Bomb instance variables 
 var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); 
@@ -91,6 +94,16 @@ function renderComputer(condition){
     arc(screenX+38, screenY+60, -40, -40, PI, TWO_PI);
   }
 
+  // Render computer with flat line
+  function worriedComputer(){
+    fill(0);
+    rect(screenX+22, screenY+20, 1, 10);
+    rect(screenX+52, screenY+20, 1, 10);
+
+    fill(0);
+    rect(screenX+18, screenY+45, 40, 2);
+  }
+
   // render computer with X for eyes.
   function deadComputer(){
     fill(0);
@@ -107,6 +120,8 @@ function renderComputer(condition){
   // Conditional logic for the eyes
   if(condition === 'happy'){
     happyComputer();
+  } else if (condition === 'worried'){
+    worriedComputer();
   } else if (condition === 'sad') {
     sadComputer();
   } else {
@@ -114,10 +129,13 @@ function renderComputer(condition){
   }
 }
 
+
 var setup = function(){ //eslint-disable-line
   var myCanvas = createCanvas(canvasWidth, canvasHeight); //eslint-disable-line
   myCanvas.parent('viewport');
 };
+
+
 
 function draw() {
   animationSpeed = millis()/10;
@@ -128,11 +146,11 @@ function draw() {
 
 
   // --------- WIP ------------
-  // explode();
   gameController();
   bomb.show();
 
 }
+
 
 // ===============================================
 // TODO - This is for testing. Needs to be in the game start function
