@@ -15,11 +15,19 @@
     </section>
     <section id="test"></section>
     <section>
+      <section id="viewport"></section>
+      <section id="animation"></section>
+      <form id="start">
+        <fieldset>
+          <label> Start Game:
+            <input type="submit" name="starts" value=" Start ">
+          </label>
+        </fieldset>
+      </form>
       <form id="player">
         <fieldset>
-          <section id="viewport"></section>
           <label> Shoot the bomb by typing in the keyword:
-            <input id="playerIn" type="text" name="playerInput" value=""/>
+            <input id="playerIn" type="text" name="playerInput" value="" autocomplete="off" />
           </label>
           <input type="submit" name="answer" value="Shoot">
         </fieldset>
@@ -29,9 +37,10 @@
   <footer>
     <script src="js/p5.min.js"></script>
     <script src="js/keywords.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/keywordGame.js"></script>
     <script src="js/bomb.js"></script>
     <script src="js/sketch.js"></script>
+    <script src="js/gameController.js"></script>
   </footer>
 </body>
 </html>

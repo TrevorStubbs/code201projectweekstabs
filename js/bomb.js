@@ -49,6 +49,42 @@ class Bomb{
   }
 
   explode() {
-    // function to command the bomb to explode
+    // function to command the bomb to explode    
+    // This the helper function to make the explosion animation
+    function star(x, y, radius1, radius2, npoints) {
+      var angle = TWO_PI / npoints;
+      var halfAngle = angle / 2.0;
+      beginShape();
+      for (var a = 0; a < TWO_PI; a += angle) {
+        var sx = x + cos(a) * radius2;
+        var sy = y + sin(a) * radius2;
+        vertex(sx, sy);
+        sx = x + cos(a + halfAngle) * radius1;
+        sy = y + sin(a + halfAngle) * radius1;
+        vertex(sx, sy);
+      }
+      endShape(CLOSE);
+    }
+    
+    push();
+    fill('red');
+    translate(canvasWidth/2, canvasHeight/2);
+    // rotate(frameCount / 50.0);
+    star(this.x, this.y, 40+ animationSpeed, 50+ animationSpeed, 10);
+    pop();
+  
+    push();
+    fill('yellow');
+    translate(canvasWidth/2, canvasHeight/2);
+    // rotate(frameCount / 50.0);
+    star(this.x, this.y, 20+ animationSpeed, 40+ animationSpeed, 10);
+    pop();
+  
+    push();
+    fill('white');
+    translate(canvasWidth/2, canvasHeight/2);
+    // rotate(frameCount / 50.0);
+    star(this.x, this.y, 5 + animationSpeed, 10 + animationSpeed, 10);
+    pop();
   }
 }
