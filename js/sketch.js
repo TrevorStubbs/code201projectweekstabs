@@ -14,6 +14,9 @@ var animationSpeed;
 // Starting game speed
 var gameSpeed = 1;
 
+// Computer life
+var computerHealth = 2;
+
 // Bomb instance variables 
 var bomb = new Bomb(1, seenKeywords[seenKeywords.length-1]); 
 
@@ -21,7 +24,7 @@ var bombArray = [];
 
 // function to generate a new bomb
 function generateNewBomb(){
-  bombArray.push(new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1])); 
+  bomb = new Bomb(gameSpeed, seenKeywords[seenKeywords.length-1]);
 }
 
 // generated the brick wall
@@ -122,11 +125,12 @@ function draw() {
 
   showBricks();
   showGround();
-  renderComputer('happy');
+
 
   // --------- WIP ------------
-  explode();
-  bombArray[bombArray.length-1].show();
+  // explode();
+  gameController();
+  bomb.show();
 
 }
 
@@ -135,21 +139,7 @@ function draw() {
 generateNewBomb();
 
 
-// This the helper function to make the explosion animation
-function star(x, y, radius1, radius2, npoints) {
-  var angle = TWO_PI / npoints;
-  var halfAngle = angle / 2.0;
-  beginShape();
-  for (var a = 0; a < TWO_PI; a += angle) {
-    var sx = x + cos(a) * radius2;
-    var sy = y + sin(a) * radius2;
-    vertex(sx, sy);
-    sx = x + cos(a + halfAngle) * radius1;
-    sy = y + sin(a + halfAngle) * radius1;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
-}
+
 
 // Explosion animation needs to be moved into bomb class
 function explode(){
@@ -173,4 +163,20 @@ function explode(){
   // rotate(frameCount / 50.0);
   star(0, 0, 5 + animationSpeed, 10 + animationSpeed, 10);
   pop();
+
+  // This the helper function to make the explosion animation
+  function star(x, y, radius1, radius2, npoints) {
+    var angle = TWO_PI / npoints;
+    var halfAngle = angle / 2.0;
+    beginShape();
+    for (var a = 0; a < TWO_PI; a += angle) {
+      var sx = x + cos(a) * radius2;
+      var sy = y + sin(a) * radius2;
+      vertex(sx, sy);
+      sx = x + cos(a + halfAngle) * radius1;
+      sy = y + sin(a + halfAngle) * radius1;
+      vertex(sx, sy);
+    }
+    endShape(CLOSE);
+  }
 }
