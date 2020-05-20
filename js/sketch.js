@@ -32,24 +32,38 @@ function generateNewBomb(){
 
 // generated the brick wall
 function showBricks(){
-  fill(150,25,25);
+  // fill(150,25,25);
+  fill('#6f6969');
 
   for(var i = 0; i < (canvasHeight/brickHeight) + 2 ; i++) {
     for(var j = 0; j < (canvasWidth/brickWidth) + 2 ; j++){
+      if(j % 3 === 0){
+        fill('#4e4e4e');
+      } else if(j % 2 === 0 && i % 11 === 0){
+        fill('#4b5a2a');
+      } else if(j % 2 === 0){
+        fill('#53634b')
+      } else if(j % 7 === 0){
+        fill('#43513a');
+      }
       if( i % 2 === 0){
         rect(j*43, i*13, brickWidth, brickHeight);
       } else{
         rect((j*43-20), i*13, brickWidth, brickHeight);
       }
+      fill('#6f6969');
     }
   }
 }
 
 // Generate the ground ellipse
 function showGround(){
-  var groundColor = '#7de83a';
+  // var groundColor = '#7de83a';
+  var groundColor = '#8c5500';
   fill(groundColor);
+  noStroke();
   ellipse((canvasWidth/2), (canvasHeight*2.1), (canvasHeight*2.5));
+  stroke(1);
 }
 
 //Generate the computer. Takes a 'string' argument
