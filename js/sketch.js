@@ -149,8 +149,6 @@ var setup = function(){ //eslint-disable-line
   myCanvas.parent('viewport');
 };
 
-
-
 function draw() {
   animationSpeed = millis()/10;
   background(220); //eslint-disable-line
@@ -158,22 +156,17 @@ function draw() {
   showBricks();
   showGround();
 
-
   // --------- WIP ------------
   gameController();
   bomb.show();
-
 }
-
 
 // ===============================================
 // TODO - This is for testing. Needs to be in the game start function
 generateNewBomb();
 
-
-
-
 // Explosion animation needs to be moved into bomb class
+//Might need to get rid of this
 function explode(){
   push();
   fill('red');
